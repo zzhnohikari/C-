@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<string.h>
+long htod(char s[])
+{
+	int i,n,num=1,result=0;
+	for(i=strlen(s)-1;i>=0;i--)
+	{
+		if(s[i]>='0'&&s[i]<='9')
+		n=s[i]-'0';
+		else if(s[i]>='A'&&s[i]<='F')
+		n=s[i]-'A'+10;
+		else if(s[i]>='a'&&s[i]<='f')
+		n=s[i]-'a'+10;
+		else
+		break;
+		result=n*num+result;
+		num=num*16;
+	 } 
+	 return result;
+}
+int main ()
+{
+	char s[128];
+	int result;
+	gets(s);
+	result=htod(s);
+	printf("%d",result);
+	return 0;	
+}
