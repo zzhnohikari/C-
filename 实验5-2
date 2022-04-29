@@ -1,0 +1,29 @@
+#include<stdio.h>
+double n_high(int n)
+{
+	int i=1,j;
+	double high;
+	if(n==1) 
+		high=100/2;
+	else
+		high=n_high(n-1)/2;
+	return high;
+}
+double ball(int n)
+{
+	double total_high,high,high_n;//high_n是第n次高度 
+	if(n==1)
+		total_high=100;
+	else
+		total_high=ball(n-1)+2*n_high(n-1);
+	return total_high;
+}
+int main ()
+{
+	double Total_distance,high;
+	int n;
+	scanf("%d",&n);
+	high=n_high(n);
+	Total_distance=ball(n)+high;
+	printf("%.4f,%.4f",high,Total_distance);
+}
