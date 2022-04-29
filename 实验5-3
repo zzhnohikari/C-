@@ -1,0 +1,43 @@
+#include<stdio.h>
+#define N 10
+void sort(int a[],int ud)
+{	int min,max,i,j,k;
+	if (ud==1) {
+		for(i=0;i<N-1;i++)
+		{
+			min=i;
+			for(j=i+1;j<N;j++)
+			{
+				if(a[min]>a[j])
+				min=j;
+			}
+			k=a[i];
+			a[i]=a[min];
+			a[min]=k;
+		}
+	} else {
+		for(i=0;i<N-1;i++)
+		{
+			max=i;
+			for(j=i+1;j<N;j++)
+			{
+				if(a[max]<a[j])
+				max=j;
+			}
+			k=a[i];
+			a[i]=a[max];
+			a[max]=k;
+		}
+	}
+}
+int main ()
+{
+	int ud,i,a[N];
+	for(i=0; i<N; i++)
+		scanf("%d",&a[i]);
+	scanf("%d",&ud);//排序方法
+	sort(a,ud);
+	for(i=0; i<N; i++)
+		printf("%d ",a[i]);
+	return 0;
+}
