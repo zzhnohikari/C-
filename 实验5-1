@@ -1,0 +1,23 @@
+#include<stdio.h>
+long double fac(double x)
+	{
+		int i;
+		double num;
+		if(x==1||x==0)
+		num=1;
+		else
+		for(num=1,i=1;i<=x;i++)
+		{
+			num=num*i;
+		}
+		return (num);	
+	 }//阶乘 
+int main ()
+{
+	long  Cmn;
+	double num,den,m,n;
+	scanf("%lf %lf",&m,&n);
+	Cmn=fac(m)/(fac(n)*fac(m-n));
+	printf("%ld",Cmn);
+	return 0;	
+} 
