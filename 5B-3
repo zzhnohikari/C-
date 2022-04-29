@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<string.h>
+void insert (char s1[],char s2[],char ch)
+{
+	int i,j,k;
+	k=strlen(s1);//s1数组的长度 
+	//for(k=0;s1[k]!='\0';k++);
+	j=strlen(s2);//s2数组的长度
+	for(i=0;s1[i]!=ch&&s1[i]!='\0';i++);
+	if(i==k)
+	printf("%s",s1);
+	else
+	{
+		while(k!=i)
+		{
+			s1[k+j]=s1[k--];
+		}
+		j=0;
+		while(s2[j]!='\0')
+		{
+			s1[++i]=s2[j++];
+		}
+		printf("%s",s1);
+	}
+	 
+}
+int main ()
+{
+	char s1[128],s2[128],ch;
+	gets(s1);
+	gets(s2);
+	scanf("%c",&ch);
+	insert(s1,s2,ch);
+	return 0;
+ } 
